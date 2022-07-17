@@ -1,0 +1,30 @@
+version: '3.4'
+
+services:
+  api:
+    build:
+      dockerfile: dockerfile
+      context: ./api
+      target: development
+    volumes:
+      - ./api:/usr/src
+      - /usr/src/node_modules
+    command: npm run start:dev
+    depends_on:
+      - postgres
+    environment:
+      NODE_ENV: dev
+      PORT: 5000
+    ports:
+      - 5000:5000
+  client:
+    build:
+      dockerfile: dockerfile
+      context: ./client
+      target: development
+    command: npm run start
+    volumes:
+      - ./client:/usr/src
+      - /usr/src/node_modules
+    ports:
+      - 4200:4200
