@@ -1,2 +1,71 @@
 <rtc-header></rtc-header>
-<rtc-main></rtc-main>
+<div class="rtc-body">
+  <router-outlet></router-outlet>
+</div>
+<!-- incommin call Modal start -->
+<section>
+  <button
+    type="button"
+    class="btn btn-primary d-none"
+    data-bs-toggle="modal"
+    data-bs-target="#incommingCallModal"
+    #openIncomminModal
+  ></button>
+  <div
+    class="modal fade text-center"
+    id="incommingCallModal"
+    tabindex="-1"
+    aria-labelledby="incommingCallModal"
+    aria-hidden="true"
+  >
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header text-center">
+          <h5 class="modal-title text-center" id="exampleModalLabel">
+            Incomming Call Request
+          </h5>
+        </div>
+        <div class="modal-body">
+          <div
+            class="userImageContainer d-flex flex-column justify-content-center align-items-center m-4"
+          >
+            <img
+              [src]="'https://thispersondoesnotexist.com/image'"
+              alt="userImage"
+            />
+            <p>{{ appState.remoteSocket }}</p>
+          </div>
+          <h3>Wants to start a call</h3>
+        </div>
+        <div class="modal-footer d-flex justify-content-center">
+          <button
+            class="btn btn-danger mx-2"
+            data-bs-dismiss="modal"
+            (click)="onDecline()"
+            #DeclineBtn
+          >
+            <img src="assets/icons/endcall.svg" alt="end call" />
+            Decline
+          </button>
+          <button
+            type="button"
+            class="btn btn-success"
+            data-bs-dismiss="modal"
+            (click)="onAccept()"
+          >
+            <i class="bi bi-telephone-fill"></i> Accept
+          </button>
+          <button
+            type="button"
+            class="btn btn-secondary d-none"
+            data-bs-dismiss="modal"
+            #closeIncomminModal
+          >
+            Close
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- incommin call Modal end -->

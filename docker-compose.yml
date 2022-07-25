@@ -10,8 +10,6 @@ services:
       - ./api:/usr/src
       - /usr/src/node_modules
     command: npm run start:dev
-    depends_on:
-      - postgres
     environment:
       NODE_ENV: dev
       PORT: 5000
@@ -27,4 +25,6 @@ services:
       - ./client:/usr/src
       - /usr/src/node_modules
     ports:
-      - 4200:4200
+      - 4300:4200
+    links:
+      - api

@@ -12,7 +12,9 @@ async function bootstrap() {
   );
   app.enableCors();
   const port = process.env.PORT || 5000;
-  app.listen(port, () => console.log(`chat-api listening on port ${port}`));
+  app.listen(port, () =>
+    console.log(`signaling-api listening on port ${port}`),
+  );
 }
 
 bootstrap();

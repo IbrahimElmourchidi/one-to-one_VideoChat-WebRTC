@@ -2,8 +2,34 @@ main {
   padding-top: 60px;
 }
 
-.mysidenav {
-  height: 100vh;
+
+
+
+.chat a {
+  padding: 8px 8px 8px 32px;
+  text-decoration: none;
+  font-size: 25px;
+  color: var(--app-theme-text);
+  display: block;
+  transition: 0.3s;
+}
+
+.mysidenav .closebtn,
+.chat .closebtn {
+  position: absolute;
+  top: 0;
+  right: 25px;
+  font-size: 36px;
+  margin-left: 50px;
+}
+
+.end-call {
+  width: 20px;
+  height: 20px;
+}
+
+.chat {
+  height: calc(100vh - 60px);
   width: 0px;
   position: relative;
   z-index: 1;
@@ -15,36 +41,48 @@ main {
   transition: 0.3s;
 }
 
-.mysidenav a {
-  padding: 8px 8px 8px 32px;
-  text-decoration: none;
-  font-size: 25px;
-  color: var(--app-theme-text);
-  display: block;
-  transition: 0.3s;
+.message-list {
+  height: 68vh;
 }
 
-.mysidenav .closebtn {
+.chat-toggler {
   position: absolute;
-  top: 0;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  bottom: 15px;
   right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
+  color: var(--app-button-text);
 }
 
-.remote-container,
-.local-container {
-  background: #111;
-  margin: 1rem;
-  height: 70vh;
-}
-
-.remote-container small,
-.local-container small {
+.noti {
+  position: absolute;
+  background: red;
   color: white;
-  padding: 1em;
+  font-weight: 600;
+  height: 25px;
+  width: 25px;
+  border-radius: 50%;
+  top: -8px;
+  left: -8px;
 }
-.end-call {
-  width: 20px;
-  height: 20px;
+.userImageContainer img {
+  width: 75px;
+  height: 75px;
+  border-radius: 50%;
+}
+
+.information-section {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+
+@media all and (max-width: 500px) {
+  .grid {
+    flex-direction: column !important;
+  }
 }
